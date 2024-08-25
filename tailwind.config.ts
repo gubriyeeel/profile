@@ -83,6 +83,16 @@ const config = {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "spotlight": {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
       },
       backgroundSize: {
         "300%": "300%",
@@ -92,6 +102,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "flip-words": "flip-words 10s infinite",
         "animated-gradient": "animated-gradient 6s ease infinite alternate",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
       },
     },
   },

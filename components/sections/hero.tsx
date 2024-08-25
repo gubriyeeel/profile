@@ -1,3 +1,4 @@
+import { Spotlight } from "@/components/spotlight";
 import { TextFlip } from "@/components/text-flip";
 import { Tooltip } from "@/components/tooltip";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { people } from "@/constants";
 export function Hero() {
   return (
     <section className="flex flex-col items-center justify-center h-fit pt-4 pb-32 md:pt-8 text-balance text-center">
+      <Spotlight className="-top-40 left-16 md:left-[40%] md:-top-20" />
       <p className="font-semibold py-2 px-6 border rounded-full shadow-sm">
         Meet the team
       </p>

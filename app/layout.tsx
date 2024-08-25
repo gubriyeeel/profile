@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(font.className, "relative")}>
+      <body className={cn(font.className, "relative overflow-x-hidden")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="container">
             <Header />
