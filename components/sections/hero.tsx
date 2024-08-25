@@ -22,7 +22,7 @@ export function Hero() {
       </div>
 
       <div className="flex flex-col gap-8 items-center mt-4">
-        <p className="text-lg md:text-2xl">
+        <p className="text-lg md:text-2xl text-muted-foreground">
           Explore and get to know the <br /> talented individuals behind the
           scenes
         </p>
