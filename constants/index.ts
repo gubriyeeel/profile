@@ -2,7 +2,7 @@ export const people = [
   {
     id: 1,
     name: "John Garcia",
-    designation: "",
+    designation: "Member",
     image:
       "/john-image.webp",
   },
