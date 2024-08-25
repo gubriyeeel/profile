@@ -1,20 +1,20 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "xl": "1280px",
+        xl: "1280px",
       },
     },
     extend: {
@@ -52,6 +52,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        filter: {
+          "blur-20": "blur(20px)",
+          "blur-25": "blur(25px)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,14 +71,31 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "flip-words": {
+          "0%": { transform: "translateY(-20%)" },
+          "25%": { transform: "translateY(-120%)" },
+          "50%": { transform: "translateY(-220%)" },
+          "75%": { transform: "translateY(-320%)" },
+          "100%": { transform: "translateY(-420%)" },
+        },
+        "animated-gradient": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      backgroundSize: {
+        "300%": "300%",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "flip-words": "flip-words 8s infinite",
+        "animated-gradient": "animated-gradient 6s ease infinite alternate",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
