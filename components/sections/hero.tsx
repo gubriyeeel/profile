@@ -22,7 +22,7 @@ export function Hero() {
         scenes
       </p>
 
-      <div className="flex flex-col md:flex-row gap-12 items-center mt-14">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-center mt-14">
         <div className="flex items-center justify-center w-full">
           <Tooltip items={people} />
         </div>
