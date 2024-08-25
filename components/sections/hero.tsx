@@ -17,15 +17,15 @@ export function Hero() {
         <TextFlip />
       </h1>
 
-      <p className="text-lg md:text-2xl mt-8">
-        Explore and get to know the <br /> talented individuals behind the
-        scenes
-      </p>
+      <div className="mt-8 flex items-center justify-center w-full mr-4">
+        <Tooltip items={people} />
+      </div>
 
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mt-8">
-        <div className="flex items-center justify-center w-full mr-4">
-          <Tooltip items={people} />
-        </div>
+      <div className="flex flex-col gap-8 items-center mt-4">
+        <p className="text-lg md:text-2xl">
+          Explore and get to know the <br /> talented individuals behind the
+          scenes
+        </p>
 
         <Button className="font-bold text-xl md:text-2xl rounded-full py-8 px-8">
           Get to know us
