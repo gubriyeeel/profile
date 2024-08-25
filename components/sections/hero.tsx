@@ -10,7 +10,7 @@ export function Hero() {
       <p className="font-semibold py-2 px-6 border rounded-full shadow-sm">
         Meet the team
       </p>
-      <h1 className="text-8xl leading-normal">
+      <h1 className="text-6xl md:text-8xl leading-normal md:leading-normal">
         System
         <TextFlip />
       </h1>
@@ -19,7 +19,7 @@ export function Hero() {
         <Tooltip items={people} />
       </div>
 
-      <Button className="mt-10 font-bold text-2xl rounded-full py-8 px-8">
+      <Button className="mt-10 font-bold text-xl md:text-2xl rounded-full py-8 px-8">
         Get to know us
       </Button>
     </section>
