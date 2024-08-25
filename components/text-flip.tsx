@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 
 export function TextFlip() {
   const words = useMemo(
-    () => ["Integration", "merging", "combining", "blending", "Integration"],
+    () => ["Integration", "Merging", "Combining", "Fusion", "Integration"],
     []
   );
 
@@ -34,7 +34,7 @@ export function TextFlip() {
   return (
     <span
       ref={tallestRef}
-      className="flex flex-col overflow-hidden text-blue-400 max-h-[1.1em]"
+      className="flex flex-col overflow-hidden max-h-[1.1em]"
     >
       {words.map((word, index) => (
         <span

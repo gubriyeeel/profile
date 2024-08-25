@@ -15,7 +15,12 @@ export function Hero() {
         <TextFlip />
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-8 items-center mt-14">
+      <p className="text-lg md:text-2xl mt-8">
+        Explore and get to know the <br /> talented individuals behind the
+        scenes
+      </p>
+
+      <div className="flex flex-col md:flex-row gap-12 items-center mt-14">
         <div className="flex items-center justify-center w-full">
           <Tooltip items={people} />
         </div>
