@@ -10,7 +10,7 @@ export function Header() {
         <div className="flex flex-row items-center justify-between">
           <div className="flex gap-2 items-center">
             <Link href={"/"}>
-              <div className="relative size-20">
+              <div className="relative size-14">
                 <Image src="/logo.svg" alt="logo" fill />
               </div>
             </Link>
