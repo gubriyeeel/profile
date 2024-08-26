@@ -1,12 +1,12 @@
 import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
+import { Members } from "@/components/sections/members";
 import { Gallery } from "@/components/sections/gallery";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <About />
+      <Members />
       <Gallery />
     </main>
   );

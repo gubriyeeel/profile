@@ -73,9 +73,13 @@ const config = {
         },
         "flip-words": {
           "0%": { transform: "translateY(-20%)" },
+          "20%": { transform: "translateY(-132%)" },
           "25%": { transform: "translateY(-120%)" },
+          "45%": { transform: "translateY(-232%)" },
           "50%": { transform: "translateY(-220%)" },
+          "70%": { transform: "translateY(-332%)" },
           "75%": { transform: "translateY(-320%)" },
+          "95%": { transform: "translateY(-432%)" },
           "100%": { transform: "translateY(-420%)" },
         },
         "animated-gradient": {
@@ -83,7 +87,7 @@ const config = {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
-        "spotlight": {
+        spotlight: {
           "0%": {
             opacity: "0",
             transform: "translate(-72%, -62%) scale(0.5)",
@@ -100,8 +104,8 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "flip-words": "flip-words 10s infinite",
-        "animated-gradient": "animated-gradient 6s ease infinite alternate",
+        "flip-words": "flip-words 8s infinite",
+        "animated-gradient": "animated-gradient 6s infinite alternate",
         spotlight: "spotlight 2s ease .75s 1 forwards",
       },
     },
