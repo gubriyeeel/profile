@@ -6,7 +6,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export function Header() {
   return (
     <header>
-      <div className="py-4">
+      <div className="py-8">
         <div className="flex flex-row items-center justify-between">
           <div className="flex gap-2 items-center">
             <Link href={"/"}>
