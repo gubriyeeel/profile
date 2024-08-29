@@ -4,10 +4,11 @@ import { Tooltip } from "@/components/tooltip";
 import { Button } from "@/components/ui/button";
 
 import { people } from "@/constants";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[calc(100svh-205px)] px-4 py-8 text-balance text-center">
+    <section className="flex flex-col items-center min-h-[calc(100svh-205px)] pt-4 text-balance text-center">
       <div className="w-full">
         <Spotlight className="-top-40 left-0 md:left-[40%] md:-top-20" />
         <p className="font-semibold py-2 px-6 border rounded-full shadow-sm w-fit mx-auto">
@@ -28,9 +29,11 @@ export function Hero() {
             talented individuals behind the scenes
           </p>
 
-          <Button className="font-bold text-lg sm:text-xl md:text-2xl rounded-full py-6 px-6 sm:py-8 sm:px-8">
-            Get to know us
-          </Button>
+          <Link href="/members">
+            <Button className="font-bold text-lg sm:text-xl md:text-2xl rounded-full py-6 px-6 sm:py-8 sm:px-8">
+              Get to know us
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

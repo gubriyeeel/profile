@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(font.className, "relative overflow-x-hidden")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="container">
