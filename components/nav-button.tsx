@@ -16,7 +16,7 @@ export default function NavButton({ href, label, isActive }: Props) {
       size="sm"
       variant="outline"
       className={cn(
-        "w-full justify-between border-none font-normal text-primary outline-none transition hover:bg-primary/20 hover:text-primary focus:bg-secondary/30 focus-visible:ring-transparent focus-visible:ring-offset-0 lg:w-auto",
+        "w-full justify-between border-none font-normal text-primary outline-none transition hover:bg-primary/20 hover:text-primary focus:bg-secondary/30 focus-visible:ring-transparent focus-visible:ring-offset-0 lg:w-auto pb-1",
         isActive ? "bg-primary/10 text-primary" : "bg-transparent"
       )}
     >
