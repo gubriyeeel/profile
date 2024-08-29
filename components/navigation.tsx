@@ -5,12 +5,17 @@ import { usePathname } from "next/navigation";
 import NavButton from "@/components/nav-button";
 
 import { links } from "@/constants";
+import { cn } from "@/lib/utils";
 
-export function Navigation() {
+type NavigationProps = {
+  className?: string;
+};
+
+export function Navigation({ className }: NavigationProps) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-x-2 overflow-x-auto ">
+    <nav className={cn("flex items-center gap-4 overflow-x-auto", className)}>
       {links.map((route) => (
         <NavButton
           key={route.href}

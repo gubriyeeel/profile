@@ -1,10 +1,15 @@
-import { Navigation } from "@/components/navigation";
+import Link from "next/link";
 
 export function Footer() {
   return (
     <footer className="py-6 border-t">
       <div className="flex items-center justify-center">
-        <Navigation />
+        <Link
+          href={"https://github.com/gubriyeeel"}
+          className="text-xs text-muted-foreground uppercase"
+        >
+          GitHub
+        </Link>
       </div>
     </footer>
   );

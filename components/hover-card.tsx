@@ -24,7 +24,7 @@ export function HoverCard({
             backgroundImage: `url(${imageUrl})`,
           }}
         >
-          <div className="absolute inset-0 bg-black/40 transition duration-500 group-hover:bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/20 transition duration-500 group-hover:bg-black/60"></div>
 
           <div className="h-fit z-10 p-4">
             <h1 className="font-bold text-xl md:text-2xl text-white">

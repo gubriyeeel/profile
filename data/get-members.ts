@@ -2,10 +2,9 @@
 
 import { database } from "@/database";
 import { members } from "@/database/schema";
-import { Member } from "@/types/member";
 
 export async function getMembers() {
-  const data: Member[] = await database.select().from(members);
+  const data = await database.select().from(members);
 
   const filtered = data.map((member) => {
     return {
@@ -13,6 +12,7 @@ export async function getMembers() {
       imageUrls: JSON.parse(member.imageUrls),
     };
   });
+  
   if (!data) {
     throw new Error("No members found");
   }

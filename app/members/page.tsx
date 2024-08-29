@@ -7,8 +7,8 @@ export default async function MembersPage() {
   const reversedUsers = users.reverse();
 
   return (
-    <div className="min-h-[calc(100svh-205px)]">
-      <div className="pb-12">
+    <div className="min-h-[calc(100svh-145px)]">
+      <div className="pb-12 sm:pt-4">
         <p className="font-semibold py-2 px-6 border rounded-full shadow-sm w-fit mx-auto">
           Who are we?
         </p>
