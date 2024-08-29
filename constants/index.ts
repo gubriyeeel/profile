@@ -1,5 +1,11 @@
 export const people = [
   {
+    id: 0,
+    name: "Jerry Grijalvo",
+    designation: "Member",
+    image: "/jerry-image.webp",
+  },
+  {
     id: 1,
     name: "John Garcia",
     designation: "Member",

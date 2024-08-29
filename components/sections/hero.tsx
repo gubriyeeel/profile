@@ -7,13 +7,13 @@ import { people } from "@/constants";
 
 export function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[calc(100vh-205px)] px-4 py-8 text-balance text-center">
+    <section className="flex flex-col items-center justify-center min-h-[calc(100svh-205px)] px-4 py-8 text-balance text-center">
       <div className="w-full">
         <Spotlight className="-top-40 left-0 md:left-[40%] md:-top-20" />
         <p className="font-semibold py-2 px-6 border rounded-full shadow-sm w-fit mx-auto">
           Meet the team
         </p>
-        <h1 className="text-4xl sm:text-6xl md:text-8xl leading-tight md:leading-normal">
+        <h1 className="text-6xl md:text-8xl leading-snug md:leading-normal">
           System
           <TextFlip />
         </h1>
