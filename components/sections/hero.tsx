@@ -12,7 +12,7 @@ export function Hero() {
         <p className="font-semibold py-2 px-6 border rounded-full shadow-sm w-fit mx-auto">
           Meet the team
         </p>
-        <h1 className="text-6xl md:text-8xl leading-snug md:leading-normal">
+        <h1 className="text-5xl md:text-7xl leading-snug md:leading-normal">
           System
           <TextFlip />
         </h1>
