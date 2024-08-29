@@ -8,6 +8,7 @@ import { Switch } from "@/components/ui/switch";
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setIsDarkMode(theme === "dark");
@@ -17,6 +18,12 @@ export function ThemeToggle() {
     setTheme(isDarkMode ? "light" : "dark");
     setIsDarkMode(!isDarkMode);
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Switch />;
 
   return <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />;
 }

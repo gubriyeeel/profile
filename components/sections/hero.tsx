@@ -1,4 +1,3 @@
-import { Spotlight } from "@/components/spotlight";
 import { TextFlip } from "@/components/text-flip";
 import { Tooltip } from "@/components/tooltip";
 import { Button } from "@/components/ui/button";
@@ -8,9 +7,8 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="flex flex-col items-center min-h-[calc(100svh-205px)] pt-4 text-balance text-center">
-      <div className="w-full">
-        <Spotlight className="-top-40 left-0 md:left-[40%] md:-top-20" />
+    <section className="flex flex-col items-center min-h-[calc(100svh-205px)] text-balance text-center">
+      <div className="w-full pb-12">
         <p className="font-semibold py-2 px-6 border rounded-full shadow-sm w-fit mx-auto">
           Meet the team
         </p>
