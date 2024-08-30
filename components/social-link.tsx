@@ -14,7 +14,7 @@ type SocialLinksProps = {
 const socialIcons = {
   Instagram,
   Facebook,
-  Github: GithubIcon,
+  GitHub: GithubIcon,
   Twitter,
 };
 

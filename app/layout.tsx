@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/providers/theme-provider";
 
 import { cn } from "@/lib/utils";
 
+import TopLoader from "@/components/top-loader";
+
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 
@@ -25,6 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(font.className, "relative overflow-x-hidden")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <TopLoader />
           <main className="container">
             <Header />
             {children}
