@@ -69,17 +69,17 @@ export default async function MemberPage({ params }: MemberPageProps) {
             <FavoriteItem
               icon="Utensils"
               label="Favorite Food"
-              value={member.favorite?.food}
+              value={member.favorite?.food ?? undefined}
             />
             <FavoriteItem
               icon="Palette"
               label="Favorite Color"
-              value={member.favorite?.color}
+              value={member.favorite?.color ?? undefined}
             />
             <FavoriteItem
               icon="Quote"
               label="Favorite Quote"
-              value={member.favorite?.quote}
+              value={member.favorite?.quote ?? undefined}
               className="sm:col-span-2"
             />
           </div>

@@ -24,7 +24,7 @@ export default async function MembersPage() {
                 <HoverCard
                   key={index}
                   firstName={firstName}
-                  description={description}
+                  description={description ?? ""}
                   imageUrl={imageUrls[0]}
                   id={Number(id)}
                 />
