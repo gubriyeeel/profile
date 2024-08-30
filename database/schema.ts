@@ -1,31 +1,37 @@
-import { text, sqliteTable, integer } from "drizzle-orm/sqlite-core";
+import { integer, pgTable, text, varchar, jsonb } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
-export const members = sqliteTable("members", {
+export const members = pgTable("members", {
   id: text("id").primaryKey(),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
-  nickName: text("nick_name").notNull(),
-  location: text("location").notNull(),
-  religion: text("religion").notNull(),
-  mbti: text("mbti").notNull(),
-  description: text("description").notNull(),
-  imageUrls: text("image_urls").notNull(),
+  firstName: varchar("first_name", { length: 100 }).notNull(),
+  lastName: varchar("last_name", { length: 100 }).notNull(),
+  nickName: varchar("nick_name", { length: 100 }),
+  location: varchar("location", { length: 255 }).notNull(),
+  religion: varchar("religion", { length: 100 }),
+  mbti: varchar("mbti", { length: 4 }),
+  description: text("description"),
+  imageUrls: text("image_urls").notNull().default(''),
 });
 
 export const membersRelations = relations(members, ({ one, many }) => ({
-  favorites: one(favorites),
+  favorite: one(favorites, {
+    fields: [members.id],
+    references: [favorites.memberId],
+  }),
   socials: many(socials),
-  hobbies: many(hobbies),
+  memberHobbies: many(memberHobbies),
 }));
 
-export const favorites = sqliteTable("favorites", {
+export const favorites = pgTable("favorites", {
   id: text("id").primaryKey(),
-  food: text("food").notNull(),
-  color: text("color").notNull(),
-  electricFanNumber: integer("electric_fan_number").notNull(),
-  quote: text("quote").notNull(),
-  memberId: text("member_id").references(() => members.id).notNull(),
+  food: varchar("food", { length: 100 }),
+  color: varchar("color", { length: 50 }),
+  electricFanNumber: integer("electric_fan_number"),
+  quote: text("quote"),
+  memberId: text("member_id")
+    .references(() => members.id)
+    .notNull()
+    .unique(),
 });
 
 export const favoritesRelations = relations(favorites, ({ one }) => ({
@@ -35,11 +41,13 @@ export const favoritesRelations = relations(favorites, ({ one }) => ({
   }),
 }));
 
-export const socials = sqliteTable("socials", {
+export const socials = pgTable("socials", {
   id: text("id").primaryKey(),
-  name: text("name").notNull(),
-  url: text("url").notNull(),
-  memberId: text("member_id").references(() => members.id).notNull(),
+  name: varchar("name", { length: 50 }).notNull(),
+  url: varchar("url", { length: 255 }).notNull(),
+  memberId: text("member_id")
+    .references(() => members.id)
+    .notNull(),
 });
 
 export const socialsRelations = relations(socials, ({ one }) => ({
@@ -49,15 +57,32 @@ export const socialsRelations = relations(socials, ({ one }) => ({
   }),
 }));
 
-export const hobbies = sqliteTable("hobbies", {
+export const hobbies = pgTable("hobbies", {
   id: text("id").primaryKey(),
-  name: text("name").notNull(),
-  memberId: text("member_id").references(() => members.id).notNull(),
+  name: varchar("name", { length: 100 }).notNull().unique(),
 });
 
-export const hobbiesRelations = relations(hobbies, ({ one }) => ({
+export const hobbiesRelations = relations(hobbies, ({ many }) => ({
+  memberHobbies: many(memberHobbies),
+}));
+
+export const memberHobbies = pgTable("member_hobbies", {
+  id: text("id").primaryKey(),
+  memberId: text("member_id")
+    .references(() => members.id)
+    .notNull(),
+  hobbyId: text("hobby_id")
+    .references(() => hobbies.id)
+    .notNull(),
+});
+
+export const memberHobbiesRelations = relations(memberHobbies, ({ one }) => ({
   member: one(members, {
-    fields: [hobbies.memberId],
+    fields: [memberHobbies.memberId],
     references: [members.id],
+  }),
+  hobby: one(hobbies, {
+    fields: [memberHobbies.hobbyId],
+    references: [hobbies.id],
   }),
 }));

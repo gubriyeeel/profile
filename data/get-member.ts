@@ -3,7 +3,13 @@
 import { eq } from "drizzle-orm";
 
 import { database } from "@/database";
-import { members, favorites, socials, hobbies } from "@/database/schema";
+import {
+  members,
+  favorites,
+  socials,
+  memberHobbies,
+  hobbies,
+} from "@/database/schema";
 
 export async function getMember(id: string) {
   const data = await database
@@ -11,12 +17,13 @@ export async function getMember(id: string) {
       member: members,
       favorite: favorites,
       socials: socials,
-      hobbies: hobbies,
+      hobby: hobbies,
     })
     .from(members)
-    .innerJoin(favorites, eq(members.id, favorites.memberId))
-    .innerJoin(socials, eq(members.id, socials.memberId))
-    .innerJoin(hobbies, eq(members.id, hobbies.memberId))
+    .leftJoin(favorites, eq(members.id, favorites.memberId))
+    .leftJoin(socials, eq(members.id, socials.memberId))
+    .leftJoin(memberHobbies, eq(members.id, memberHobbies.memberId))
+    .leftJoin(hobbies, eq(memberHobbies.hobbyId, hobbies.id))
     .where(eq(members.id, id));
 
   if (data.length === 0) {
@@ -26,13 +33,17 @@ export async function getMember(id: string) {
   const memberData = data[0].member;
   const filtered = {
     ...memberData,
-    imageUrls: JSON.parse(memberData.imageUrls),
+    imageUrls: memberData.imageUrls, // Remove JSON.parse
     favorite: data[0].favorite,
     socials: Array.from(
       new Set(data.map((item) => JSON.stringify(item.socials)))
     ).map((item) => JSON.parse(item)),
     hobbies: Array.from(
-      new Set(data.map((item) => JSON.stringify(item.hobbies)))
+      new Set(
+        data
+          .filter((item) => item.hobby)
+          .map((item) => JSON.stringify(item.hobby))
+      )
     ).map((item) => JSON.parse(item)),
   };
 
