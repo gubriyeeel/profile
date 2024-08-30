@@ -28,8 +28,7 @@ export default async function MemberPage({ params }: MemberPageProps) {
           href="/members"
           className="inline-flex items-center gap-2 text-2xl font-semibold hover:text-primary"
         >
-          <ArrowLeft className="h-6 w-6" />
-          <span>Members</span>
+          <ArrowLeft className="size-10" />
         </Link>
       </nav>
 
@@ -45,11 +44,11 @@ export default async function MemberPage({ params }: MemberPageProps) {
             </AvatarFallback>
           </Avatar>
           <div className="text-center sm:text-left">
-            <h1 className="text-3xl sm:text-4xl font-bold mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">
               {`${member.firstName} ${member.lastName}`}{" "}
               <span className="text-muted-foreground">({member.nickName})</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-4">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-4">
               {member.description}
             </p>
             <div className="flex items-center justify-center sm:justify-start text-lg">
@@ -62,36 +61,45 @@ export default async function MemberPage({ params }: MemberPageProps) {
         <Separator className="my-8" />
 
         <section aria-labelledby="favorites-heading">
-          <h2 id="favorites-heading" className="text-2xl font-bold mb-4">
-            Favorites
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <FavoriteItem
-              icon="Utensils"
-              label="Favorite Food"
-              value={member.favorite?.food ?? undefined}
-            />
-            <FavoriteItem
-              icon="Palette"
-              label="Favorite Color"
-              value={member.favorite?.color ?? undefined}
-            />
-            <FavoriteItem
-              icon="Quote"
-              label="Favorite Quote"
-              value={member.favorite?.quote ?? undefined}
-              className="sm:col-span-2"
-            />
-          </div>
+          <FavoriteItem
+            icon="Quote"
+            label="Favorite Quote"
+            value={member.favorite?.quote ?? undefined}
+            className="sm:col-span-2 italic text-balance text-center"
+          />
         </section>
 
         <Separator className="my-8" />
 
-        <section aria-labelledby="socials-heading">
-          <h2 id="socials-heading" className="text-2xl font-bold mb-4">
-            Socials
-          </h2>
-          <SocialLinks socials={member.socials} />
+        <section aria-labelledby="favorites-heading">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="h-fit space-y-2">
+              <h2 id="favorites-heading" className="text-2xl font-bold">
+                Favorites
+              </h2>
+
+              <div className="grid grid-cols-2 gap-4">
+                <FavoriteItem
+                  icon="Utensils"
+                  label="Favorite Food"
+                  value={member.favorite?.food ?? undefined}
+                />
+                <FavoriteItem
+                  icon="Palette"
+                  label="Favorite Color"
+                  value={member.favorite?.color ?? undefined}
+                />
+              </div>
+            </div>
+
+            <div className="h-fit space-y-2">
+              <h2 id="socials-heading" className="text-2xl font-bold">
+                Socials
+              </h2>
+
+              <SocialLinks socials={member.socials} />
+            </div>
+          </div>
         </section>
 
         <Separator className="my-8" />
